@@ -1,15 +1,15 @@
-#Color Filtering
+# Color Filtering
 
 bertujuan untuk memproses gambar dengan menambahkan filter warna yang didasarkan pada konsep emosi dan warna dalam teori psikologi emosi, khususnya merujuk pada roda emosi. Berikut adalah penjelasan tentang langkah-langkah dan fungsi yang ada dalam program tersebut.
 
-##Inisialisasi dan Impor Modul
+## Inisialisasi dan Impor Modul
 ``` python
 import numpy as np, cv2 as cv
 ```
 
-###Modul numpy digunakan untuk manipulasi array, sedangkan cv2 (OpenCV) digunakan untuk pemrosesan gambar, seperti membaca, menampilkan, dan menyimpan gambar.
+Modul numpy digunakan untuk manipulasi array, sedangkan cv2 (OpenCV) digunakan untuk pemrosesan gambar, seperti membaca, menampilkan, dan menyimpan gambar.
 
-##Fungsi imageRead(filename)
+## Fungsi imageRead(filename)
 ``` python
 def imageRead(filename):
     readFile = open(filename, 'rb')
@@ -20,12 +20,12 @@ def imageRead(filename):
     return img
 ```
 
-###Fungsi ini digunakan untuk membaca gambar dari file dengan nama yang diberikan (filename).
+Fungsi ini digunakan untuk membaca gambar dari file dengan nama yang diberikan (filename).
 - Gambar dibaca dalam format binary (rb), kemudian diubah menjadi array NumPy dengan tipe data uint8.
 - Gambar yang dibaca diubah ukurannya menjadi 480x480 piksel dengan 3 saluran warna (BGR), dan kemudian diubah ke format RGB.
 - Gambar yang telah diproses kemudian dikembalikan.
 
-##Fungsi showImage(title, image)
+## Fungsi showImage(title, image)
 ``` python
 def showImage(title, image):
     cv.namedWindow(title, cv.WINDOW_AUTOSIZE)
@@ -33,12 +33,12 @@ def showImage(title, image):
     cv.waitKey(0)
 ```
 
-###Fungsi ini digunakan untuk menampilkan gambar pada jendela dengan judul title.
+Fungsi ini digunakan untuk menampilkan gambar pada jendela dengan judul title.
 Gambar yang diberikan akan ditampilkan menggunakan OpenCV (cv.imshow), dan program akan menunggu sampai tombol ditekan sebelum melanjutkan.
 
 
-##Kelas ColorFilter
-### Kelas ini bertanggung jawab untuk mengatur dan memanipulasi warna gambar sesuai dengan warna target yang diberikan. Kelas ini memiliki beberapa atribut dan metode:
+## Kelas ColorFilter
+Kelas ini bertanggung jawab untuk mengatur dan memanipulasi warna gambar sesuai dengan warna target yang diberikan. Kelas ini memiliki beberapa atribut dan metode:
 
 Atribut:
 image: Menyimpan gambar yang akan diproses.
@@ -52,7 +52,7 @@ a. Metode set_image(input_image)
 def set_image(self, input_image):
     self.image = np.copy(inputImage)
 ```
-### Metode ini menyetel gambar yang akan diproses, yaitu salinan dari gambar yang diberikan sebagai parameter.
+Metode ini menyetel gambar yang akan diproses, yaitu salinan dari gambar yang diberikan sebagai parameter.
 
 ## b. Metode set_target_color(color)
 
@@ -64,7 +64,7 @@ def set_target_color(self, color):
         self.colorDict[iii] = cv.cvtColor(transformColor, cv.COLOR_HSV2RGB)
 ```
 
-### Fungsi ini mengubah warna target yang diberikan (dalam format BGR) menjadi format HSV menggunakan cv.cvtColor.
+Fungsi ini mengubah warna target yang diberikan (dalam format BGR) menjadi format HSV menggunakan cv.cvtColor.
 Kemudian, untuk setiap nilai antara 0 dan 255, gambar akan diubah ke format HSV yang berbeda, dengan menyesuaikan nilai saturasi (S), dan menghasilkan warna baru.
 Setiap warna hasil transformasi disimpan dalam dictionary colorDict.
 
@@ -81,7 +81,7 @@ def filter(self):
     return self.image
 ```
 
-### Fungsi ini memproses setiap piksel dalam gambar.
+Fungsi ini memproses setiap piksel dalam gambar.
 Untuk setiap piksel, setiap komponen warna (R, G, B) dipetakan berdasarkan nilai dalam colorDict.
 Dengan cara ini, setiap warna dalam gambar akan dimodifikasi sesuai dengan transformasi warna yang telah ditetapkan sebelumnya.
 
@@ -97,7 +97,7 @@ showImage('Output', output)
 cv.imwrite("results.jpg", output)
 ```
 
-### Gambar yang diinginkan dibaca menggunakan cv.imread.
+Gambar yang diinginkan dibaca menggunakan cv.imread.
 Objek colorFilter dari kelas ColorFilter dibuat dan gambar serta warna target diset menggunakan metode set_image dan set_target_color.
 Gambar akhir (output) dihasilkan dengan mencampurkan gambar asli dan gambar yang telah diproses oleh filter warna. Rasio campuran adalah 40% gambar asli dan 60% gambar hasil filter.
 Gambar hasil diproses ditampilkan menggunakan showImage dan disimpan sebagai file results.jpg.
@@ -110,4 +110,4 @@ Pencampuran Gambar: Gambar asli dicampur dengan gambar yang telah diproses, deng
 Menampilkan dan Menyimpan Gambar: Gambar akhir ditampilkan dan disimpan dalam file.
 
 ## Tujuan dari Program:
-### Program ini mencoba untuk memberikan efek visual pada gambar berdasarkan warna yang terinspirasi oleh teori roda emosi Plutchik, di mana setiap warna mewakili emosi tertentu. Dengan memanipulasi warna gambar berdasarkan teori tersebut, program ini dapat menciptakan efek visual yang menambah kedalaman emosional pada gambar yang ditampilkan.
+Program ini mencoba untuk memberikan efek visual pada gambar berdasarkan warna yang terinspirasi oleh teori roda emosi Plutchik, di mana setiap warna mewakili emosi tertentu. Dengan memanipulasi warna gambar berdasarkan teori tersebut, program ini dapat menciptakan efek visual yang menambah kedalaman emosional pada gambar yang ditampilkan.
