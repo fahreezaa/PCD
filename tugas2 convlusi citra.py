@@ -8,7 +8,7 @@ Created on Mon Sep 16 22:33:04 2024
 import numpy as np
 import cv2
 
-cam = cv2.VideoCapture("C:\\Users\\Aurel\\OneDrive\\Pictures\\Camera Roll\\WIN_20240911_11_14_45_Pro.mp4", 0 )
+cam = cv2.VideoCapture("C:/Users/ejaau/OneDrive/Gambar/Rol Kamera/WIN_20241128_12_45_59_Pro.jpg", 0 )
 
 #konvolusi manual
 def konvolusi(image, kernel):
