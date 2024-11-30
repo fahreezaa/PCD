@@ -111,3 +111,4 @@ Menampilkan dan Menyimpan Gambar: Gambar akhir ditampilkan dan disimpan dalam fi
 
 ## Tujuan dari Program:
 Program ini mencoba untuk memberikan efek visual pada gambar berdasarkan warna yang terinspirasi oleh teori roda emosi Plutchik, di mana setiap warna mewakili emosi tertentu. Dengan memanipulasi warna gambar berdasarkan teori tersebut, program ini dapat menciptakan efek visual yang menambah kedalaman emosional pada gambar yang ditampilkan.
+![image](https://github.com/user-attachments/assets/3581c60c-6bac-49b5-887c-9fe9ee742936)
